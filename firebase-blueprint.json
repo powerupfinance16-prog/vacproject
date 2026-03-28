@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "QuizResult": {
+      "title": "QuizResult",
+      "description": "A user's result for a specific quiz",
+      "type": "object",
+      "properties": {
+        "userName": { "type": "string" },
+        "subjectId": { "type": "string" },
+        "score": { "type": "number" },
+        "total": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userName", "subjectId", "score", "total", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/results/{resultId}": {
+      "schema": { "$ref": "#/entities/QuizResult" },
+      "description": "Stores all quiz results"
+    }
+  }
+}
